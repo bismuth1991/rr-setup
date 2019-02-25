@@ -17,9 +17,10 @@ const apiMiddleware = ({ dispatch }) => next => (action) => {
   next(action);
 
   if (action.type.includes(API_REQUEST)) {
-    const { url, method, feature } = action.meta;
+    const { feature } = action.meta;
+    const { url, method, data } = action.payload;
 
-    request(url, method)
+    request(url, method, data)
       .then(response => dispatch(apiSuccess(response, feature)))
       .catch(error => dispatch(apiError(error, feature)));
   }

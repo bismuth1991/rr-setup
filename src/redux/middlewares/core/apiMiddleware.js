@@ -3,7 +3,7 @@ import {
   API_REQUEST,
   apiSuccess,
   apiError,
-} from '../../actions/api';
+} from '../../actions/apiActions';
 
 const request = (url, method, data) => (
   axios.request({
